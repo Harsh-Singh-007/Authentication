@@ -50,7 +50,7 @@ public class Register extends AppCompatActivity {
                 mobile = text_mobile.getText().toString().trim();
                 password = text_pass.getText().toString().trim();
 
-                if(name.equals(" ")|| email1.equals(" ") || mobile.equals(" ")||password.equals(" "))
+                if(name.isEmpty()|| email1.isEmpty() || mobile.isEmpty()||password.isEmpty())
                 {
                     Toast.makeText(Register.this,"Please enter all the credentials",Toast.LENGTH_SHORT).show();
                 }
