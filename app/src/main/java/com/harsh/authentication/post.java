@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RequiresPermission;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -54,6 +55,9 @@ public class post extends AppCompatActivity {
         findid();
         insertData();
         imagePicker();
+
+        cameraPermission = new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        storagePermission = new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE};
     }
 
     private void imagePicker() {
@@ -84,7 +88,8 @@ public class post extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestStoragePermission() {
-        requestPermissions(storagePermission,STORAGE_REQUEST);
+//        requestPermissions(storagePermission,STORAGE_REQUEST);
+        ActivityCompat.requestPermissions(this,storagePermission,STORAGE_REQUEST);
     }
 
     private boolean checkStoragePermission() {
@@ -98,8 +103,11 @@ public class post extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestCameraPermission() {
-        requestPermissions(cameraPermission,CAMERA_REQUEST);
+//        requestPermissions(cameraPermission, CAMERA_REQUEST);
+//        ActivityCompat.requestPermissions(post.this,);
+        ActivityCompat.requestPermissions(this,cameraPermission,CAMERA_REQUEST);
     }
+
 
     private boolean checkCameraPermission() {
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)==(PackageManager.PERMISSION_GRANTED);
