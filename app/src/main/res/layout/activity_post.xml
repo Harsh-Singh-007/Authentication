@@ -18,19 +18,16 @@
 
         <ImageView
             android:id="@+id/image"
+            android:src="@mipmap/ic_launcher"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="124dp"
-            android:layout_marginLeft="124dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="126dp"
-            android:layout_marginRight="126dp"
             android:layout_marginBottom="542dp" />
 
         <EditText
@@ -38,14 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
             android:layout_marginBottom="446dp" />
 
         <EditText
@@ -54,9 +47,7 @@
             android:layout_height="100dp"
             android:layout_above="@+id/title"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_marginEnd="2dp"
@@ -65,19 +56,29 @@
 
         <Button
             android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="272dp"
+            android:text="Submit"
+            android:textColor="@color/white"
+            app:backgroundTint="#0000FF" />
+
+        <Button
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="156dp"
-            android:layout_marginLeft="156dp"
-            android:layout_marginEnd="156dp"
-            android:layout_marginRight="156dp"
-            android:layout_marginBottom="272dp"
-            android:text="Submit"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="202dp"
+            android:text="Back"
             android:textColor="@color/white"
             app:backgroundTint="#0000FF" />
 
