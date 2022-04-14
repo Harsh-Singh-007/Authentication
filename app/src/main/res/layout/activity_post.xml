@@ -18,21 +18,18 @@
 
         <ImageView
             android:id="@+id/image"
-            android:src="@mipmap/ic_launcher"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="124dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="126dp"
-            android:layout_marginBottom="542dp" />
+            android:src="@mipmap/ic_launcher" />
 
         <EditText
             android:id="@+id/title"
-            android:hint="Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -40,7 +37,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="3dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="446dp" />
+            android:layout_marginBottom="446dp"
+            android:hint="Title" />
 
         <EditText
             android:id="@+id/description"
@@ -66,9 +64,11 @@
             android:layout_marginStart="140dp"
             android:layout_marginEnd="140dp"
             android:layout_marginBottom="272dp"
+            android:background="@drawable/round"
             android:text="Submit"
             android:textColor="@color/white"
-            app:backgroundTint="#0000FF" />
+            android:textSize="18sp"
+            app:backgroundTint="#26ABFF" />
 
         <Button
             android:id="@+id/back"
@@ -80,9 +80,10 @@
             android:layout_marginStart="140dp"
             android:layout_marginEnd="140dp"
             android:layout_marginBottom="202dp"
+            android:background="@drawable/round"
             android:text="Back"
-            android:textColor="@color/white"
-            app:backgroundTint="#0000FF" />
+            android:textSize="18sp"
+            app:backgroundTint="#26ABFF"  />
 
     </RelativeLayout>
 

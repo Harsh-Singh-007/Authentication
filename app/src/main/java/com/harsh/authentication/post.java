@@ -19,6 +19,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -71,7 +72,7 @@ public class post extends AppCompatActivity {
                         requestCameraPermission();
                     }
                     else{
-                        pickFromGallery();
+                        pickfromCam();
                     }
                 }
                 else if(avatar == 1){
@@ -86,9 +87,14 @@ public class post extends AppCompatActivity {
         });
     }
 
+    private void pickfromCam() {
+        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camera,CAMERA_REQUEST);
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestStoragePermission() {
-//        requestPermissions(storagePermission,STORAGE_REQUEST);
         ActivityCompat.requestPermissions(this,storagePermission,STORAGE_REQUEST);
     }
 
@@ -103,8 +109,6 @@ public class post extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestCameraPermission() {
-//        requestPermissions(cameraPermission, CAMERA_REQUEST);
-//        ActivityCompat.requestPermissions(post.this,);
         ActivityCompat.requestPermissions(this,cameraPermission,CAMERA_REQUEST);
     }
 
@@ -138,6 +142,8 @@ public class post extends AppCompatActivity {
                     avatar.setImageResource(R.mipmap.ic_launcher);
                     title.setText("");
                     description.setText("");
+                    Intent intent = new Intent(post.this,Home.class);
+                    startActivity(intent);
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
@@ -203,6 +209,10 @@ public class post extends AppCompatActivity {
                 Uri uri = result.getUri();
                 Picasso.with(this).load(uri).into(avatar);
             }
+        }
+        else if(requestCode == CAMERA_REQUEST){
+            Bitmap image = (Bitmap) data.getExtras().get("data");
+            avatar.setImageBitmap(image);
         }
     }
 }

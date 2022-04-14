@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     if(result){
                         Boolean checknumberpassword = DB.checknumberpassword(name,pass);
                         if(checknumberpassword){
-                            Intent intent = new Intent(MainActivity.this,Home.class);
+                            Intent intent = new Intent(MainActivity.this,post.class);
                             Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Boolean checkemailpassword = DB.checkemailpassword(name,pass);
                         if(checkemailpassword){
-                            Intent intent = new Intent(MainActivity.this,Home.class);
+                            Intent intent = new Intent(MainActivity.this,post.class);
                             Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }

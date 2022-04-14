@@ -15,13 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements MyAdapter.OnNoteListner {
 
     DBmain dBmain;
     SQLiteDatabase sqLiteDatabase;
     RecyclerView recyclerView;
-    MyAdapter adapter;
-
+    private MyAdapter adapter;
+    private ArrayList<Model> models = new ArrayList<>();
     Button add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,6 @@ public class Home extends AppCompatActivity {
     private void displayData() {
         sqLiteDatabase = dBmain.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " +TABLENAME+"",null);
-        ArrayList<Model> models = new ArrayList<>();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
             byte[] avatar = cursor.getBlob(1);
@@ -55,11 +54,18 @@ public class Home extends AppCompatActivity {
             models.add(new Model(id,avatar,title,desc));
         }
         cursor.close();
-        adapter = new MyAdapter(this,R.layout.singledata,models,sqLiteDatabase);
+        adapter = new MyAdapter(Home.this,R.layout.singledata,models,sqLiteDatabase,this);
         recyclerView.setAdapter(adapter);
     }
 
     private void findId() {
         recyclerView = findViewById(R.id.recview);
+    }
+
+    @Override
+    public void onNoteClick(int position) {
+        models.get(position);
+        Intent intent = new Intent(Home.this,post.class);
+        startActivity(intent);
     }
 }
