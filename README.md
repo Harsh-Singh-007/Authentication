@@ -1,6 +1,6 @@
 # Authentication
 
-In this app I tried to make it with few constrations in it.
+In this app I tried to make it with few constraints in it.
 This will be an offline app, so everything should be saved locally.
 The app should be compatible with any screen resolution.
 All validations will be expected like – Mobile validation: validate Indian mobile numbers only;
