@@ -9,4 +9,4 @@ Password validation: min 8 and max 15 characters, should not contain your name, 
 should be lowercase, must contain at least 2 uppercase characters, 2 digits and 1 special character.
 
 
-
+https://user-images.githubusercontent.com/60298946/163441497-b3f9ac0a-ee90-488b-b704-fae92615e117.mp4
