@@ -1,6 +1,7 @@
 package com.harsh.authentication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,14 +25,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     int single;
     ArrayList<Model> modelArrayList;
     SQLiteDatabase sqLiteDatabase;
-    private OnNoteListner onNoteListner;
 
-    public MyAdapter(Context context, int single, ArrayList<Model> modelArrayList, SQLiteDatabase sqLiteDatabase,OnNoteListner onNoteListner) {
+    public MyAdapter(Context context, int single, ArrayList<Model> modelArrayList, SQLiteDatabase sqLiteDatabase) {
         this.context = context;
         this.single = single;
         this.modelArrayList = modelArrayList;
         this.sqLiteDatabase = sqLiteDatabase;
-        this.onNoteListner = onNoteListner;
     }
 
     @NonNull
@@ -39,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.singledata,null);
-        return new ViewHolder(view,onNoteListner);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -50,6 +49,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.imageavatar.setImageBitmap(bitmap);
         holder.txtname.setText(model.getTitle());
         holder.txtdesc.setText(model.getDescription());
+
+        holder.imageavatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,Views.class);
+                intent.putExtra("image",model.getAvatar());
+                intent.putExtra("title",model.getTitle());
+                intent.putExtra("description",model.getDescription());
+            }
+        });
+        holder.txtname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,Views.class);
+                intent.putExtra("image",model.getAvatar());
+                intent.putExtra("title",model.getTitle());
+                intent.putExtra("description",model.getDescription());
+            }
+        });
+        holder.txtdesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,Views.class);
+                intent.putExtra("image",model.getAvatar());
+                intent.putExtra("title",model.getTitle());
+                intent.putExtra("description",model.getDescription());
+            }
+        });
     }
 
     @Override
@@ -57,25 +84,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return modelArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageavatar;
         TextView txtname,txtdesc;
-        OnNoteListner onNoteListner;
-        public ViewHolder(@NonNull View itemView,OnNoteListner onNoteListner) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageavatar = (ImageView) itemView.findViewById(R.id.viewavatar);
             txtname = (TextView) itemView.findViewById(R.id.txt_name);
             txtdesc = (TextView) itemView.findViewById(R.id.txt_des);
-            this.onNoteListner = onNoteListner;
-            itemView.setOnClickListener(this);
         }
+    }
 
-        @Override
-        public void onClick(View view) {
-            onNoteListner.onNoteClick(getAdapterPosition());
-        }
-    }
-    public interface OnNoteListner{
-        void onNoteClick(int position);
-    }
+
 }

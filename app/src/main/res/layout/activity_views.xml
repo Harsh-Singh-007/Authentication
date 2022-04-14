@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".post">
+    tools:context=".Views">
 
     <RelativeLayout
         android:layout_width="400dp"
@@ -16,62 +16,46 @@
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="126dp"
-            android:src="@mipmap/ic_launcher" />
+    <ImageView
+        android:id="@+id/viewsimage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="126dp"
+        android:src="@mipmap/ic_launcher" />
 
-        <EditText
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="446dp"
-            android:hint="Title" />
+    <TextView
+        android:id="@+id/viewstitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="446dp"
+        android:hint="Title" />
 
-        <EditText
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_above="@+id/title"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="-146dp"
-            android:hint="Decription" />
-
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="140dp"
-            android:layout_marginEnd="140dp"
-            android:layout_marginBottom="272dp"
-            android:background="@drawable/round"
-            android:text="Submit"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:backgroundTint="#26ABFF" />
+    <TextView
+        android:id="@+id/viewsdescription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@+id/viewstitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="-146dp"
+        android:hint="Decription" />
 
         <Button
-            android:id="@+id/back"
+            android:id="@+id/viewsback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -79,7 +63,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="140dp"
             android:layout_marginEnd="140dp"
-            android:layout_marginBottom="202dp"
+            android:layout_marginBottom="233dp"
             android:background="@drawable/round"
             android:text="Back"
             android:textSize="18sp"
